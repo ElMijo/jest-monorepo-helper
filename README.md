@@ -1,2 +1,3 @@
-# jest-monorepo-helper
-This is a package let you create a Monorepo Typescript jest configuration
+# Monorepo Jest Helper
+
+This package lets you create a Monorepo Typescript Jest configuration easily

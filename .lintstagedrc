@@ -1,0 +1,6 @@
+{
+    "*.{ts,tml,json}": [
+        "yarn lint",
+        "yarn prettier --check"
+    ]
+}
