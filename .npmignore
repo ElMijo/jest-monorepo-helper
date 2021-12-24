@@ -1,0 +1,12 @@
+.editorconfig
+.eslintrc
+.lintstagedrc
+.prettierignore
+.prettierrc
+.coverage
+.vscode
+__tests__
+tsconfig.json
+src
+jest.config.ts
+*.log

@@ -1,6 +1,6 @@
 {
-    "*.{ts,tml,json}": [
-        "yarn lint",
-        "yarn prettier --check"
+    "*.{ts,json}": [
+        "yarn eslint",
+        "yarn prettier --check ."
     ]
 }

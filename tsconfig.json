@@ -18,6 +18,7 @@
     "strictNullChecks": false
   },
   "exclude": [
+    "**/lib/**/*",
     "node_modules",
     "**/__tests__/**/*",
     "**/__mocks__/**/*",

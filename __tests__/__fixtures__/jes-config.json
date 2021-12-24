@@ -1,20 +1,11 @@
 {
-  "withoutProjects": {
+  "rootWithoutProjects": {
     "verbose": true,
     "testEnvironment": "node",
-    "testPathIgnorePatterns": [
-      "/node_modules/"
-    ],
+    "testPathIgnorePatterns": ["/node_modules/"],
     "coverageDirectory": ".coverage",
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "/types/"
-    ],
-    "coverageReporters": [
-      "json",
-      "text",
-      "lcov"
-    ],
+    "coveragePathIgnorePatterns": ["/node_modules/", "/types/"],
+    "coverageReporters": ["json", "text", "lcov"],
     "coverageThreshold": {
       "global": {
         "branches": 100,
@@ -23,21 +14,12 @@
         "statements": 100
       }
     },
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "ts"
-    ],
-    "modulePathIgnorePatterns": [
-      "fixtures",
-      "__fixtures__"
-    ],
+    "moduleFileExtensions": ["json", "js", "jsx", "ts", "tsx"],
+    "modulePathIgnorePatterns": ["fixtures", "__fixtures__"],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
-    "transformIgnorePatterns": [
-      "/node_modules/"
-    ],
+    "transformIgnorePatterns": ["/node_modules/"],
     "globals": {
       "ts-jest": {
         "tsconfig": "<rootDir>/tsconfig.json"
@@ -45,22 +27,13 @@
     },
     "projects": []
   },
-  "withProjects": {
+  "rootWithProjects": {
     "verbose": true,
     "testEnvironment": "node",
-    "testPathIgnorePatterns": [
-      "/node_modules/"
-    ],
+    "testPathIgnorePatterns": ["/node_modules/"],
     "coverageDirectory": ".coverage",
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "/types/"
-    ],
-    "coverageReporters": [
-      "json",
-      "text",
-      "lcov"
-    ],
+    "coveragePathIgnorePatterns": ["/node_modules/", "/types/"],
+    "coverageReporters": ["json", "text", "lcov"],
     "coverageThreshold": {
       "global": {
         "branches": 100,
@@ -69,29 +42,71 @@
         "statements": 100
       }
     },
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "ts"
-    ],
-    "modulePathIgnorePatterns": [
-      "fixtures",
-      "__fixtures__"
-    ],
+    "moduleFileExtensions": ["json", "js", "jsx", "ts", "tsx"],
+    "modulePathIgnorePatterns": ["fixtures", "__fixtures__"],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
-    "transformIgnorePatterns": [
-      "/node_modules/"
-    ],
+    "transformIgnorePatterns": ["/node_modules/"],
     "globals": {
       "ts-jest": {
         "tsconfig": "<rootDir>/tsconfig.json"
       }
     },
-    "projects": [
-      "/some/path/project-one",
-      "/some/path/project-two"
-    ]
+    "projects": ["/some/path/project-one", "/some/path/project-two"]
+  },
+  "projectDefaultConfig": {
+    "verbose": true,
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": ["/node_modules/"],
+    "coverageDirectory": ".coverage",
+    "coveragePathIgnorePatterns": ["/node_modules/", "/types/"],
+    "coverageReporters": ["json", "text", "lcov"],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    },
+    "moduleFileExtensions": ["json", "js", "jsx", "ts", "tsx"],
+    "modulePathIgnorePatterns": ["fixtures", "__fixtures__"],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "transformIgnorePatterns": ["/node_modules/"],
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "<rootDir>/tsconfig.json"
+      }
+    }
+  },
+  "projectCustomConfig": {
+    "verbose": true,
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": ["/node_modules/"],
+    "coverageDirectory": ".coverage",
+    "coveragePathIgnorePatterns": ["/node_modules/", "/types/"],
+    "coverageReporters": ["json", "text", "lcov"],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    },
+    "moduleFileExtensions": ["json", "js", "jsx", "ts", "tsx"],
+    "modulePathIgnorePatterns": ["fixtures", "__fixtures__"],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "transformIgnorePatterns": ["/node_modules/"],
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "<rootDir>/myconfig.json"
+      }
+    }
   }
 }

@@ -18,7 +18,7 @@ const readFileSyncMock = readFileSync as jest.MockedFunction<
   typeof readFileSync
 >
 
-const getDirentMock = (name: string, isDir: boolean = false): Dirent => ({
+const getDirentMock = (name: string, isDir = false): Dirent => ({
   name,
   isFile: jest.fn(() => false),
   isDirectory: jest.fn(() => isDir),

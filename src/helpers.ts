@@ -71,33 +71,3 @@ export const getProjectInfo = (
     ),
   }
 }
-// export const getPackagesInfo = ()
-
-// export const getPackageCoverage = (dir: string): Array<string> =>
-//   ['src/**/*.ts'].map((item) => join(dir, item))
-// packageRepos
-//     .map((dir) => readdirSync(dir, { withFileTypes: true })).filter((item) => item.isDirectory()).map((dir) => dir.name)
-
-// const packages = readdirSync('./packages', { withFileTypes: true })
-//     .filter((dir) => dir.isDirectory())
-//     .map((dir) => dir.name)
-
-// export const packageRoots = (dir: string): Array<string> =>
-//     ['src', '__tests__', '__mocks__'].map((item) => join(dir, item))
-
-// export const packageInfo = (
-//     dir: string
-// ): {
-//     displayName: string
-//     roots: Array<string>
-//     collectCoverageFrom: Array<string>
-// } => {
-// const { name } = JSON.parse(
-//     readFileSync(join(dir, 'package.json')).toString()
-// )
-//     return {
-//         displayName: packageName(name),
-//         roots: packageRoots(dir),
-//         collectCoverageFrom: packageCoverage(dir),
-//     }
-// }
