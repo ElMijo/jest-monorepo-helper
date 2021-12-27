@@ -1,0 +1,39 @@
+language: node_js
+node_js:
+  - "14"
+stages:
+  - Code Quality
+  - Unit Tests
+  - Integration Tests
+
+script: skip
+
+jobs:
+  include:
+    - stage: Code Quality
+      if: branch = main OR type = pull_request
+      script: yarn lint
+    - stage: Unit Tests
+      if: branch = main OR type = pull_request
+      before_install: yarn global add codecov coveralls
+      script: yarn test --coverage
+      after_success: codecov && coveralls < .coverage/lcov.info
+    - stage: Integration Tests
+      if: branch = main OR type = pull_request
+      script: yarn test:integration
+
+before_deploy:
+  - yarn build
+
+deploy:
+  provider: npm
+  cleanup: true
+  email: $NPM_EMAIL
+  api_key: $NPM_TOKEN
+  on:
+    tags: true
+
+cache:
+  yarn: true
+notifications:
+  email: false

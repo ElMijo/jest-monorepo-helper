@@ -5,6 +5,7 @@
     "module": "commonjs",
     "declaration": true,
     "declarationMap": false,
+    "declarationDir": "./lib/types",
     "sourceMap": true,
     "outDir": "./lib",
     "isolatedModules": true,
