@@ -1,5 +1,5 @@
 import { fakeProject, ws, FakeProject } from "../utils/faker"
-import { jestProjectConfig } from "../../src"
+import { jestPackageConfig } from "../../src"
 import {
   projectDefaultConfig,
   projectCustomConfig,
@@ -27,7 +27,7 @@ it("Should generate a project configuration with default values", () => {
   const workspace = ws.fake()
   const project = fakeProject(workspace.path)
 
-  expect(jestProjectConfig({ projectDir: project.path })).toStrictEqual(
+  expect(jestPackageConfig({ projectDir: project.path })).toStrictEqual(
     getExpected(project)
   )
 })
@@ -37,6 +37,6 @@ it("Should generate a project configuration with custom values", () => {
   const project = fakeProject(workspace.path)
 
   expect(
-    jestProjectConfig({ projectDir: project.path }, "myconfig")
+    jestPackageConfig({ projectDir: project.path }, "myconfig")
   ).toStrictEqual(getExpected(project, projectCustomConfig))
 })

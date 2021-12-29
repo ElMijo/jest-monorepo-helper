@@ -1,0 +1,13 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "name": "Monorepo Helpers",
+  "includeVersion": true,
+  "out": ".docs",
+  "entryPoints": ["src/jest/index.ts"],
+  "darkHighlightTheme": "dark-plus",
+  "lightHighlightTheme": "dark-plus",
+  "validation": {
+    "invalidLink": true,
+    "notExported": true
+  }
+}

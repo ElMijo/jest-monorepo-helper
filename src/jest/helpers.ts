@@ -1,27 +1,40 @@
 import path from "path"
 import { readdirSync, existsSync, readFileSync } from "fs"
 
-export interface MonoRepoHelperPackage {
+export interface PackageDetails {
+  /**
+   * Package name, the name that is defined in the package.json
+   */
   name: string
+  /**
+   * Absolute path of the package.
+   */
   path: string
+  /**
+   * Absolute path of the package.json of the package.
+   */
   packageFile: string
 }
 
-export interface MonoRepoHelperProjectConfig {
+export interface PackageConfig {
   displayName: string
   roots: Array<string>
   collectCoverageFrom: Array<string>
 }
 
-export interface MonoRepoHelperProjectInfoOpts {
+export interface PackageInfoOptions {
   projectDir: string
   roots?: Array<string>
   collectCoverageFrom?: Array<string>
 }
 
-export const getPackagesList = (
-  repos: Array<string>
-): Array<MonoRepoHelperPackage> =>
+/**
+ * Get a list of all packages information that you have created in the monorepo.
+ *
+ * @param repos - List of relative path of monorepo package repositories
+ * @returns A list  of packages information.
+ */
+export const getPackagesList = (repos: Array<string>): Array<PackageDetails> =>
   repos
     .map((repo) => path.resolve(repo))
     .filter((repo) => existsSync(repo))
@@ -43,16 +56,26 @@ export const getPackagesList = (
       return acc
     }, [])
 
-export const getProjectTitle = (name: string): string =>
+/**
+ * Convert a package.json name property in a human name.
+ *
+ * @param name - A package.json name property.
+ * @returns A human project name.
+ */
+export const getPackageTitle = (name: string): string =>
   name
     .replace("@", "")
     .split(/\/|-/)
     .map((name) => name.charAt(0).toUpperCase() + name.slice(1))
     .join(" ")
 
-export const getProjectInfo = (
-  opts: MonoRepoHelperProjectInfoOpts
-): MonoRepoHelperProjectConfig => {
+/**
+ * Get a project info to generate a project info.
+ *
+ * @param opts - Configuration options to generate project info.
+ * @returns An object with the project configuration.
+ */
+export const getPackageConfig = (opts: PackageInfoOptions): PackageConfig => {
   const {
     projectDir,
     roots = ["src", "__tests__", "__mocks__"],
@@ -64,7 +87,7 @@ export const getProjectInfo = (
   )
 
   return {
-    displayName: getProjectTitle(name),
+    displayName: getPackageTitle(name),
     roots: roots.map((root) => path.join(projectDir, root)),
     collectCoverageFrom: collectCoverageFrom.map((dir) =>
       path.join(projectDir, dir)

@@ -14,18 +14,16 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "prettier"],
+  "plugins": ["@typescript-eslint", "eslint-plugin-tsdoc", "prettier"],
   "ignorePatterns": ["**/lib/**/*.js", "**/*.d.ts"],
   "rules": {
+    "tsdoc/syntax": "warn",
     "prettier/prettier": "error",
-    "no-unused-vars": "off",
-    "@typescript-eslint/ban-ts-comment": "off",
-    "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/explicit-module-boundary-types": [
+    "@typescript-eslint/no-empty-interface": [
       "error",
       {
-        "allowedNames": ["userFactory"]
+        "allowSingleExtends": true
       }
     ]
   }

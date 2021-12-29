@@ -3,9 +3,9 @@ import { join, resolve } from "path"
 import { readdirSync, existsSync, readFileSync, Dirent } from "fs"
 import {
   getPackagesList,
-  getProjectTitle,
-  getProjectInfo,
-} from "../../src/helpers"
+  getPackageTitle,
+  getPackageConfig,
+} from "../../src/jest/helpers"
 
 jest.mock("fs")
 jest.mock("path")
@@ -231,7 +231,7 @@ describe("getpackagesList", () => {
   })
 })
 
-describe("getProjectTitle", () => {
+describe("getPackageTitle", () => {
   it.each([
     ["", ""],
     ["Name", "name"],
@@ -241,11 +241,11 @@ describe("getProjectTitle", () => {
     ["Scope Name", "@scope/name"],
     ["Scope Name One", "@scope/name-one"],
   ])("Should return %s when given %s", (expected, value) => {
-    expect(getProjectTitle(value)).toBe(expected)
+    expect(getPackageTitle(value)).toBe(expected)
   })
 })
 
-describe("getProjectInfo", () => {
+describe("getPackageConfig", () => {
   afterEach(() => jest.clearAllMocks())
   it("Should return a project info with default values", () => {
     readFileSyncMock.mockReturnValueOnce(Buffer.from('{"name": "@scope/name"}'))
@@ -254,7 +254,9 @@ describe("getProjectInfo", () => {
     joinMock.mockReturnValueOnce("/some/path/project/__tests__")
     joinMock.mockReturnValueOnce("/some/path/project/__mocks__")
     joinMock.mockReturnValueOnce("/some/path/project/src/**/*.ts")
-    expect(getProjectInfo({ projectDir: "/some/path/project" })).toStrictEqual({
+    expect(
+      getPackageConfig({ projectDir: "/some/path/project" })
+    ).toStrictEqual({
       displayName: "Scope Name",
       roots: [
         "/some/path/project/src",
@@ -274,7 +276,7 @@ describe("getProjectInfo", () => {
     readFileSyncMock.mockReturnValueOnce(Buffer.from('{"name": "@scope/name"}'))
     joinMock.mockReturnValueOnce("/some/path/project/package.json")
     expect(
-      getProjectInfo({
+      getPackageConfig({
         projectDir: "/some/path/project",
         roots: [],
         collectCoverageFrom: [],
@@ -294,7 +296,7 @@ describe("getProjectInfo", () => {
     joinMock.mockReturnValueOnce("/some/path/project/lib")
     joinMock.mockReturnValueOnce("/some/path/project/lib/**/*.ts")
     expect(
-      getProjectInfo({
+      getPackageConfig({
         projectDir: "/some/path/project",
         roots: ["lib"],
         collectCoverageFrom: ["lib/**/*.ts"],

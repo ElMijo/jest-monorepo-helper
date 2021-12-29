@@ -1,20 +1,20 @@
-import { getPackagesList, getProjectInfo } from "../../src/helpers"
+import { getPackagesList, getPackageConfig } from "../../src/jest/helpers"
 import {
   rootWithoutProjects,
   rootWithProjects,
   projectDefaultConfig,
   projectCustomConfig,
 } from "../__fixtures__/jes-config.json"
-import { jestRootConfig, jestProjectConfig } from "../../src"
+import { jestRootConfig, jestPackageConfig } from "../../src"
 
-jest.mock("../../src/helpers")
+jest.mock("../../src/jest/helpers")
 
 const getPackagesListMock = getPackagesList as jest.MockedFunction<
   typeof getPackagesList
 >
 
-const getProjectInfoMock = getProjectInfo as jest.MockedFunction<
-  typeof getProjectInfo
+const getPackageConfigMock = getPackageConfig as jest.MockedFunction<
+  typeof getPackageConfig
 >
 
 const projectInfo = {
@@ -23,26 +23,26 @@ const projectInfo = {
   collectCoverageFrom: ["src/**/*.ts"],
 }
 
-getProjectInfoMock.mockReturnValue(projectInfo)
+getPackageConfigMock.mockReturnValue(projectInfo)
 
 afterEach(() => jest.clearAllMocks())
 
-describe("jestProjectConfig", () => {
+describe("jestPackageConfig", () => {
   it("Should generate a valid Jest project configuration, default arguments", () => {
-    expect(jestProjectConfig({ projectDir: "any-path" })).toStrictEqual({
+    expect(jestPackageConfig({ projectDir: "any-path" })).toStrictEqual({
       ...projectDefaultConfig,
       ...projectInfo,
     })
-    expect(getProjectInfoMock).toBeCalledWith({ projectDir: "any-path" })
+    expect(getPackageConfigMock).toBeCalledWith({ projectDir: "any-path" })
   })
   it("Should generate a valid Jest project configuration, custom arguments", () => {
     expect(
-      jestProjectConfig({ projectDir: "any-path" }, "myconfig")
+      jestPackageConfig({ projectDir: "any-path" }, "myconfig")
     ).toStrictEqual({
       ...projectCustomConfig,
       ...projectInfo,
     })
-    expect(getProjectInfoMock).toBeCalledWith({ projectDir: "any-path" })
+    expect(getPackageConfigMock).toBeCalledWith({ projectDir: "any-path" })
   })
 })
 
