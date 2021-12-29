@@ -1,6 +1,0 @@
-{
-    "*.{ts,json}": [
-        "yarn eslint",
-        "yarn prettier --check ."
-    ]
-}

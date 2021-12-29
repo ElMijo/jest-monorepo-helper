@@ -4,10 +4,22 @@
   "description": "This package lets you create a Monorepo Typescript Jest configuration easily",
   "main": "lib/index.js",
   "types": "lib/types/index.d.ts",
-  "repository": "git@github.com:ElMijo/monorepo-jest-helper.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ElMijo/monorepo-helper.git"
+  },
   "author": "Jerry Anselmi <jerry.anselmi@gmail.com>",
   "license": "MIT",
   "private": true,
+  "keywords": [
+    "monorepo",
+    "jest",
+    "helper"
+  ],
+  "homepage": "https://elmijo.github.io/monorepo-helper/",
+  "bugs": {
+    "url": "https://github.com/ElMijo/monorepo-helper/issues"
+  },
   "engines": {
     "node": ">=14.17.0"
   },
