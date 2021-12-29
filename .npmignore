@@ -14,3 +14,4 @@ jest.config.ts
 typedoc.json
  .codecov.yml
  .travis.yml
+.husky
