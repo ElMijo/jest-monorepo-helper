@@ -15,9 +15,10 @@
     "build": "rimraf ./lib && tsc",
     "test": "jest --testPathPattern __tests__/unit",
     "test:integration": "jest --testPathPattern __tests__/integration",
-    "lint": "eslint && prettier --check .",
-    "lint:fix": "eslint --fix && prettier --write .",
-    "docs": "rimraf ./.docs && typedoc"
+    "lint": "eslint . && prettier --check .",
+    "lint:fix": "eslint --fix . && prettier --write .",
+    "docs": "rimraf ./.docs && typedoc",
+    "postinstall": "husky install"
   },
   "devDependencies": {
     "@types/jest": "^27.0.2",
@@ -30,10 +31,10 @@
     "eslint": "^7.32.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-tsdoc": "^0.2.14",
-    "husky": "^7.0.2",
+    "husky": "^7.0.4",
     "jest": "^27.2.2",
     "jsdoc-plugin-typescript": "^2.0.6",
-    "lint-staged": "^11.1.2",
+    "lint-staged": "^12.1.4",
     "prettier": "^2.4.1",
     "rimraf": "^3.0.2",
     "ts-jest": "^27.0.5",
@@ -45,5 +46,11 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "lint-staged": {
+    "*.{ts,json,yml}": [
+      "eslint .",
+      "prettier --check ."
+    ]
   }
 }
