@@ -10,3 +10,7 @@ tsconfig.json
 src
 jest.config.ts
 *.log
+.docs
+typedoc.json
+ .codecov.yml
+ .travis.yml
