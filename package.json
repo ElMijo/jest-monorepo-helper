@@ -10,7 +10,6 @@
   },
   "author": "Jerry Anselmi <jerry.anselmi@gmail.com>",
   "license": "MIT",
-  "private": true,
   "keywords": [
     "monorepo",
     "jest",
@@ -30,7 +29,9 @@
     "lint": "eslint . && prettier --check .",
     "lint:fix": "eslint --fix . && prettier --write .",
     "docs": "rimraf ./.docs && typedoc",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable"
   },
   "devDependencies": {
     "@types/jest": "^27.0.2",
@@ -47,6 +48,7 @@
     "jest": "^27.2.2",
     "jsdoc-plugin-typescript": "^2.0.6",
     "lint-staged": "^12.1.4",
+    "pinst": "^2.1.6",
     "prettier": "^2.4.1",
     "rimraf": "^3.0.2",
     "ts-jest": "^27.0.5",
