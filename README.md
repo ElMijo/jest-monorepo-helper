@@ -169,3 +169,7 @@ export default {
   watchman: false
 } as Config.InitialOptions
 ```
+
+## Documentation
+
+(https://elmijo.github.io/monorepo-helper/)[https://elmijo.github.io/monorepo-helper/]

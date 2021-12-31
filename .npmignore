@@ -15,3 +15,5 @@ typedoc.json
  .codecov.yml
  .travis.yml
 .husky
+CHANGELOG.md
+CONTRIBUTING.md
