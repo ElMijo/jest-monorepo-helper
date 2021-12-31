@@ -172,4 +172,4 @@ export default {
 
 ## Documentation
 
-(https://elmijo.github.io/monorepo-helper/)[https://elmijo.github.io/monorepo-helper/]
+https://elmijo.github.io/monorepo-helper/
